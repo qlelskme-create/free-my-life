@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% block title %}Registrarse - Free My Life{% endblock %}
+
+{% block content %}
+<div class="auth-container">
+    <div class="auth-form">
+        <div class="auth-header">
+            <i class="fas fa-user-plus"></i>
+            <h1>Crear Cuenta</h1>
+            <p>Únete a Free My Life</p>
+        </div>
+
+        <form method="POST" class="form">
+            <div class="form-group">
+                <label for="username">Usuario:</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Contraseña:</label>
+                <input type="password" id="password" name="password" required>
+                <small>Mínimo 8 caracteres</small>
+            </div>
+
+            <div class="form-group">
+                <label for="confirm_password">Confirmar Contraseña:</label>
+                <input type="password" id="confirm_password" name="confirm_password" required>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Registrarse</button>
+        </form>
+
+        <div class="auth-footer">
+            <p>¿Ya tienes cuenta? <a href="{{ url_for('login') }}">Inicia sesión aquí</a></p>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+    body { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+    .auth-container { display: flex; justify-content: center; align-items: center; min-height: 100vh; }
+    .auth-form { background: white; padding: 40px; border-radius: 10px; box-shadow: 0 10px 25px rgba(0,0,0,0.2); width: 100%; max-width: 400px; }
+    .auth-header { text-align: center; margin-bottom: 30px; }
+    .auth-header i { font-size: 48px; color: #667eea; margin-bottom: 10px; }
+    .auth-header h1 { margin: 10px 0; color: #333; }
+    .auth-header p { color: #666; }
+    .form-group { margin-bottom: 20px; }
+    .form-group label { display: block; margin-bottom: 5px; color: #333; }
+    .form-group input { width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px; }
+    .form-group small { display: block; margin-top: 5px; color: #999; }
+    .btn { width: 100%; padding: 10px; background: #667eea; color: white; border: none; border-radius: 5px; cursor: pointer; }
+    .btn:hover { background: #764ba2; }
+    .auth-footer { text-align: center; margin-top: 20px; }
+    .auth-footer a { color: #667eea; text-decoration: none; }
+</style>
+{% endblock %}
